@@ -1,24 +1,92 @@
 body {
-    font-family: 'Segoe UI', 'Meiryo', sans-serif;
-    background: #f7f7f7;
+    font-family: 'Segoe UI', 'Hiragino Sans', 'Meiryo', sans-serif;
+    background: linear-gradient(120deg, #f0f4f8 0%, #e0e7ef 100%);
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
+
 h1 {
     text-align: center;
-    margin-top: 60px;
-    color: #333;
-    font-size: 2.2rem;
+    color: #2d3a4b;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    letter-spacing: 0.05em;
 }
+
+#main-container {
+    background: #fff;
+    max-width: 480px;
+    margin: 2rem auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(60, 80, 120, 0.10);
+    padding: 2rem 2rem 1.5rem 2rem;
+}
+
+button {
+    background: linear-gradient(90deg, #4f8cff 0%, #1cb5e0 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.6em 1.5em;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0.5em 0.5em 1em 0;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(60, 80, 120, 0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #1cb5e0 0%, #4f8cff 100%);
+    box-shadow: 0 4px 16px rgba(60, 80, 120, 0.15);
+}
+
+textarea {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #b0b8c1;
+    padding: 0.8em;
+    font-size: 1em;
+    margin-bottom: 1em;
+    resize: vertical;
+    background: #f8fafc;
+    box-sizing: border-box;
+    transition: border 0.2s;
+}
+
+textarea:focus {
+    border: 1.5px solid #4f8cff;
+    outline: none;
+}
+
+#display-area {
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e0e7ef;
+    padding: 1em;
+    min-height: 120px;
+    margin-top: 1em;
+    font-size: 1em;
+    box-sizing: border-box;
+    white-space: pre-wrap;
+}
+
 .palette-line {
     margin-bottom: 2px;
     font-size: 1em;
+    display: flex;
+    align-items: baseline;
 }
+
 .palette-command {
     font-weight: bold;
-    color: #222;
+    color: #2d3a4b;
+    margin-right: 0.5em;
 }
+
 .palette-desc {
     color: #007acc;
-    margin-left: 0.5em;
+    font-size: 0.98em;
 }
