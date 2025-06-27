@@ -122,3 +122,46 @@ textarea:focus {
     color: #007acc;
     font-size: 0.98em;
 }
+
+#toast {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    min-width: 180px;
+    max-width: 320px;
+    background: rgba(60, 80, 120, 0.97);
+    color: #fff;
+    padding: 1em 1.5em 1.7em 1.5em; /* 下に余白を追加 */
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(60, 80, 120, 0.18);
+    font-size: 1em;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 0.4s, transform 0.4s;
+    transform: translateX(120%) translateY(0);
+}
+
+#toast.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0) translateY(0);
+}
+
+#toast .toast-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(90deg, #4f8cff 0%, #1cb5e0 100%);
+    border-radius: 0 0 8px 8px;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 1.6s linear;
+    pointer-events: none;
+}
+
+#toast.show .toast-bar {
+    transform: scaleX(0);
+}

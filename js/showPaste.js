@@ -2,6 +2,21 @@ import { setLines, getLines } from './linesData.js';
 import { renderLines } from './renderLines.js';
 import { copyTextToClipboard } from './clipboard.js';
 
+function showToast(message, isError = false) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+    // メッセージ部分をspanでラップ
+    toast.innerHTML = `<span class="toast-message">${message}</span><div class="toast-bar"></div>`;
+    toast.style.background = isError ? 'rgba(200,60,60,0.97)' : 'rgba(60, 80, 120, 0.97)';
+    // バーのアニメーションをリセットするため一度クラスを外す
+    toast.classList.remove('show');
+    void toast.offsetWidth; // 強制再描画でアニメーションリセット
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 1600);
+}
+
 export function showPastedText() {
     const pasteArea = document.getElementById('paste-area');
     const displayArea = document.getElementById('display-area');
@@ -22,11 +37,9 @@ window.addEventListener('DOMContentLoaded', () => {
             const text = lines.join('\n');
             const success = await copyTextToClipboard(text);
             if (success) {
-                copyBtn.textContent = 'コピーしました!';
-                setTimeout(() => { copyBtn.textContent = 'コピー'; }, 1200);
+                showToast('コピーしました!');
             } else {
-                copyBtn.textContent = 'コピー失敗';
-                setTimeout(() => { copyBtn.textContent = 'コピー'; }, 1200);
+                showToast('コピー失敗', true);
             }
         });
     }
