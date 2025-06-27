@@ -1,9 +1,9 @@
 // copyButtonHandler.js
 // コピー処理とボタンイベント登録を担当
 
-import { getLines } from './linesData.js';
-import { copyTextToClipboard } from './clipboard.js';
-import { showToast } from './toast.js';
+import { getLines } from '../entities/linesData.js';
+import { copyTextToClipboard } from '../infrastructure/clipboard.js';
+import { showToast } from '../infrastructure/toast.js';
 
 /**
  * コピー用ボタンのイベント登録と処理を初期化する

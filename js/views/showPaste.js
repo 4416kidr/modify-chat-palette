@@ -1,7 +1,7 @@
 // showPaste.js
 // 貼り付けテキストのセットと描画のみ担当
 
-import { setLines } from './linesData.js';
+import { setLines } from '../entities/linesData.js';
 import { renderLines } from './renderLines.js';
 
 /**

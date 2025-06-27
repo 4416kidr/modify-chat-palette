@@ -1,6 +1,6 @@
 // renderLines.js
 // 表示エリアの描画のみを担当
-import { getLines } from './linesData.js';
+import { getLines } from '../entities/linesData.js';
 
 export function renderLines(displayArea) {
     const linesData = getLines();

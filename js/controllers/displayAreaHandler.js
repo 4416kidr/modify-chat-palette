@@ -1,8 +1,8 @@
 // displayAreaHandler.js
 // 表示エリアの初期化・再描画・ドラッグ＆ドロップハンドラ登録を担当
 
-import { renderLines } from './renderLines.js';
-import { moveLine } from './linesData.js';
+import { renderLines } from '../views/renderLines.js';
+import { moveLine } from '../entities/linesData.js';
 import { attachDragDropHandlers } from './dragDropHandler.js';
 
 /**
