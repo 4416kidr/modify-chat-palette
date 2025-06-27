@@ -1,0 +1,16 @@
+# VSCode
+.vscode/
+
+# Build
+/dist/
+/build/
+
+# Env
+.env
+.env.*
+
+# Others
+*.log
+*.tmp
+/temp/
+/tmp/
