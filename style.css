@@ -10,3 +10,15 @@ h1 {
     color: #333;
     font-size: 2.2rem;
 }
+.palette-line {
+    margin-bottom: 2px;
+    font-size: 1em;
+}
+.palette-command {
+    font-weight: bold;
+    color: #222;
+}
+.palette-desc {
+    color: #007acc;
+    margin-left: 0.5em;
+}
