@@ -1,7 +1,16 @@
+// showPaste.js
+// 貼り付けテキストの表示・トースト通知・クリップボード連携を担当
+
 import { setLines, getLines } from './linesData.js';
 import { renderLines } from './renderLines.js';
 import { copyTextToClipboard } from './clipboard.js';
 
+/**
+ * トースト通知を表示する
+ * @param {string} message - 表示するメッセージ
+ * @param {boolean} [isError=false] - エラー時はtrue
+ * @param {number} [duration=1600] - 表示時間（ミリ秒）
+ */
 function showToast(message, isError = false, duration = 1600) {
     const toast = document.getElementById('toast');
     if (!toast) return;
@@ -19,6 +28,9 @@ function showToast(message, isError = false, duration = 1600) {
     }, duration);
 }
 
+/**
+ * テキストエリアの内容を行データとしてセットし、表示エリアを再描画する
+ */
 export function showPastedText() {
     const pasteArea = document.getElementById('paste-area');
     const displayArea = document.getElementById('display-area');

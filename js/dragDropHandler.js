@@ -1,6 +1,12 @@
 // dragDropHandler.js
 // ドラッグ＆ドロップ処理を担当
 
+/**
+ * パレット行のドラッグ＆ドロップイベントをdisplayAreaに付与する
+ * @param {HTMLElement} displayArea - パレット行を含む要素
+ * @param {(fromIdx: number, toIdx: number) => void} moveLine - 行の移動処理コールバック
+ * @param {() => void} rerender - ドロップ後の再描画コールバック
+ */
 export function attachDragDropHandlers(displayArea, moveLine, rerender) {
     let dragSrcIdx = null;
     displayArea.addEventListener('dragstart', (e) => {
