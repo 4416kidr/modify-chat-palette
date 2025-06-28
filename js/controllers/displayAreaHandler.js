@@ -11,10 +11,7 @@ import { attachDragDropHandlers } from './dragDropHandler.js';
 export function initDisplayArea() {
     const displayArea = document.getElementById('display-area');
     if (displayArea) {
-        const rerender = () => {
-            renderLines(displayArea);
-            attachDragDropHandlers(displayArea, moveLine, rerender);
-        };
-        rerender();
+        attachDragDropHandlers(displayArea, moveLine, () => renderLines(displayArea));
+        renderLines(displayArea);
     }
 }
