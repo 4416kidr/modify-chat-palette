@@ -4,14 +4,30 @@ import { getLines } from '../entities/linesData.js';
 
 export function renderLines(displayArea) {
     const linesData = getLines();
-    displayArea.innerHTML = linesData.map((line, idx) => {
+    displayArea.innerHTML = '';
+    linesData.forEach((line, idx) => {
         const match = line.match(/^(.*?)(【.*】)$/);
-        let content;
+        let contentDiv = document.createElement('div');
+        contentDiv.className = 'palette-line';
+        contentDiv.setAttribute('draggable', 'true');
+        contentDiv.setAttribute('data-idx', idx);
+
         if (match) {
-            content = `<span class='palette-command'>${match[1].trim()}</span> <span class='palette-desc'>${match[2]}</span>`;
+            const commandSpan = document.createElement('span');
+            commandSpan.className = 'palette-command';
+            commandSpan.textContent = match[1].trim();
+
+            const descSpan = document.createElement('span');
+            descSpan.className = 'palette-desc';
+            descSpan.textContent = match[2];
+
+            contentDiv.appendChild(commandSpan);
+            contentDiv.appendChild(document.createTextNode(' '));
+            contentDiv.appendChild(descSpan);
         } else {
-            content = line;
+            contentDiv.textContent = line;
         }
-        return `<div class='palette-line' draggable='true' data-idx='${idx}'>${content}</div>`;
-    }).join('');
+
+        displayArea.appendChild(contentDiv);
+    });
 }
